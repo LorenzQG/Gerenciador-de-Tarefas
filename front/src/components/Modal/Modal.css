@@ -1,0 +1,30 @@
+.modal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    opacity: 95%;
+}
+.modal-content{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 40%;
+}
+.resLogo{
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 0 auto;
+}
+.btn-close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
