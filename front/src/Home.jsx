@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import "./reset.css";
+import "./HomeMedia.css";
 import Modal from "./components/Modal/Modal";
 import ListTasks from "./components/ListTasks/listTasks";
 import api from "./services/api";
-import { useNavigate } from "react-router-dom";
-export default function Home() {
+export default function Home({ token, removeCookie }) {
   const [tasks, setTasks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,28 +14,19 @@ export default function Home() {
 
   const [nome, setNome] = useState("");
 
-  const navigate = useNavigate();
-
-  function verifyToken() {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
-  }
-
   async function logout() {
-    localStorage.removeItem("token");
-    navigate("/login");
+    removeCookie("token");
   }
 
   async function getUser() {
     const response = await api.get("/users", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
       },
     })
 
     if (response.status === 401) {
-      navigate("/login");
+      removeCookie("token")
     }
     
     setNome(response.data.name);
@@ -44,7 +35,7 @@ export default function Home() {
   async function getTasks() {
     const getTasks = await api.get("/tasks", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
       },
     })
     setTasks(getTasks.data);
@@ -60,7 +51,7 @@ export default function Home() {
       },
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -71,7 +62,6 @@ export default function Home() {
   useEffect(() => {
     getTasks();
     getUser();
-    verifyToken();
   }, []);
 
   const listTasks = tasks.map((task) => (
@@ -79,11 +69,11 @@ export default function Home() {
   ));
 
   return (
-    <body>
+    <>
       <header className="header">
         <h1 className="logo">Task Manager</h1>
         <div className="profile">
-          <h3 className="user-name">{nome}</h3>
+          <h3 className="user-name">Welcome {nome}</h3>
           <button className="btn-create-task" onClick={logout}>
             Logout
           </button>
@@ -126,6 +116,6 @@ export default function Home() {
           )}
         </div>
       </main>
-    </body>
+    </>
   );
 }
