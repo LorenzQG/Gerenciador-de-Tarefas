@@ -11,34 +11,24 @@
     width: 100%;
 }
 .task-title{
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
     position: absolute;
     top:7%
 }
 .task-desc{
-    font-size: 1.1rem;
+    font-size: .9rem;
     color:#ccc;
     position: absolute;
     top: 50%;
     left: 17%;  
 }
 .task-creatDate{
-    font-size: .87rem;
+    font-size: .7rem;
     color: #666;
     position: absolute;
     top: 86%;
     right: 67%;
-}
-
-input[type=checkbox]{
-    position: absolute;
-    top: 10%;
-    left: 95%;
-    height: 17px;
-    width: 17px;
-    transform: translateY(-50%);
-    cursor: pointer;
 }
 
 .btn-update{
@@ -47,6 +37,7 @@ input[type=checkbox]{
     border: none;
     padding: 10px;
     border-radius: 5px;
+    font-size: .8rem;
     cursor: pointer;
     position: absolute;
     bottom: 10%;

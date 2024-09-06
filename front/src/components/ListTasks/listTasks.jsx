@@ -1,4 +1,5 @@
 import "./listTasks.css"
+import "./listTasksMedia.css"
 import api from "../../services/api"
 import Modal from "../Modal/Modal"
 import { useState, useRef } from "react"
@@ -19,15 +20,13 @@ export default function ListTasks({ task, setTasks }) {
     setTasks((tasks) => tasks.filter((t) => t.id !== task.id))
   }
 
-  async function updateTask(e){
-    e.preventDefault()
-    const updatedTask = await api.put(`/tasks/${task.id}`, {
+  async function updateTask(){
+    await api.put(`/tasks/${task.id}`, {
       title: titleInput.current.value,
       description: descInput.current.value
     })
-    setTasks((tasks) => tasks.map((t) => t.id === task.id ? updatedTask.data : t))
-    setIsOpen(false)
-    console.log("Task updated")
+
+    setIsOpen(!isOpen)
   }
 
   return (
