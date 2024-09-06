@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
 }
 .login-main{
     display: flex;
@@ -16,7 +16,7 @@
     background-color: rgb(78, 70, 70);
 }
 .login-logo{
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #fff;
 }
 .login-form{
@@ -55,6 +55,7 @@
     font-size: 0.8rem;
 }
 .link{
-    color: #2b2727;
+    color: #000;
     text-decoration: none;
+    margin-left: 0.2rem;
 }

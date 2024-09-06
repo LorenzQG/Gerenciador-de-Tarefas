@@ -1,24 +1,21 @@
-import "./login.css";
+import "./Login.css";
+import "./LoginMedia.css";
 import "../../reset.css";
 import { Link } from "react-router-dom";
 import api from "../../services/api";
 import { useRef } from "react";
-export default function Login() {
+export default function Login({onLogin}) {
   const emailInput = useRef();
   const passwordInput = useRef();
 
   async function login(e) {
     e.preventDefault();
-    const email = emailInput.current.value;
-    const password = passwordInput.current.value;
-
     const response = await api.post("/users/login", {
       email: emailInput.current.value,
       password: passwordInput.current.value,
     })
 
-    localStorage.setItem("token", response.data.token);
-    window.location.href = "/home";
+    onLogin(response.data.token);
   }
 
   return (
