@@ -1,4 +1,5 @@
 import "./Modal.css";
+import "./ModalMedia.css";
 export default function Modal({isOpen, setModalOpen, children}){
     if(isOpen){
         console.log('modal open')
