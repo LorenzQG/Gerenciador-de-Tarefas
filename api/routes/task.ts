@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
   const tasks = await prisma.task.findMany({
     where: {
       userID: users.id,
-    },
+    }
   })
   res.status(200).json(tasks);
 });
@@ -93,17 +93,20 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json(task);
     });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res) =>{
     const { id } = req.params
-    const { checked } = req.body;
-     await prisma.task.update({
+
+    const { title, description } = req.body
+    await prisma.task.update({
         where: {
             id: parseInt(id),
         },
         data: {
-            checked: checked,
-        },
-    });
+            title,
+            description
+        }
+    })
+
 })
 
 
