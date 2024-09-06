@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+    .task{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        width: 90%;
+    }
+
+    .task-creatDate{
+        top: 84%;
+        right: 48%;
+        font-size: .6rem;
+    }
+
+    .btn-update{
+        display: flex;
+        justify-content: center;
+        left: 68%;
+        width: 15%;
+        height: 2rem;
+        box-sizing: border-box;
+        font-size: .6rem;
+    }
+
+    .btn-delete-task{
+        display: flex;
+        justify-content: center;
+        left: 86%;
+        width: 9%;
+        height: 2.5rem;
+    }
+
+
+    
+}
