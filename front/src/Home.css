@@ -15,6 +15,14 @@
     --scrollbar-thump-color: #6b6b6b;
     --scrollbar-track-color: #383838;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  *{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
   body{
     background-color: var(--background-dark-color);
   }
@@ -26,13 +34,15 @@
     gap: 4rem;
     padding: 2rem 2.5rem;
     height: 100vh;
-    border-bottom-right-radius: 100%;
     float: left;
     width: 25%;
     border-right: 2px solid var(--border-color);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     transition: all .4s ease;
     background-color: var(--sidebar-dark-color);
+    z-index: 100;
+    position: fixed;
+    font-family: 'Poppins', sans-serif;
   }
   .header .logo{
     color: var(--white-color);
@@ -41,12 +51,9 @@
   }
   .user-name{
     color: var(--white-color);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: 500;
-    border: 2px solid var(--border-color);
     padding: 10px 20px;
-    border-radius: 8rem;
-
   }
 
   .profile{
@@ -64,9 +71,9 @@
     gap: 5rem;
     padding: 40px 10px;
     padding-left: 80px;
-    width: 55%;
+    width: 70%;
     transition: all .4s ease;
-    
+    float: right;
   }
   .main h2{
     color: var(--white-color);
@@ -79,14 +86,14 @@
     background-color: var(--primary-color);
     color: var(--white-color);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 9px;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
     transition: all .4s ease;
   }
   .container_tasks{
-    width: 80%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
