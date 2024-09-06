@@ -1,4 +1,5 @@
 import "../Login/Login.css";
+import "../Login/LoginMedia.css";
 import api from "../../services/api";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -16,7 +17,7 @@ export default function Registro() {
             email: descInput.current.value,
             password: passwordInput.current.value
         })
-        navigate("/login")
+        navigate("/")
     }
 
 
@@ -31,7 +32,7 @@ export default function Registro() {
                     <button type="submit" className="btn-enter" onClick={postUser}>Registrar</button>
                 </form>
                 <div>
-                   <span className="span">Já possui uma conta? <Link to="/login" className="link">Clique aqui para logar</Link></span> 
+                   <span className="span">Já possui uma conta? <Link to="/" className="link">Clique aqui</Link></span> 
                 </div>
            </div>
         </main>
