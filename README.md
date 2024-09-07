@@ -34,7 +34,7 @@ Instruções de utilização:
 
  Para rodar os servidores agora siga os seguintes passos:
 
- - No cmd voce vai ir no diretorio "front" e colocar o seguinte comando "npm run dev"
+ - No cmd voce vai ir no diretorio "front" e colocar o seguinte comando "npm run dev" depois abra o localhost no seu navegador
    
  - Agora em outro cmd você vai ir do diretorio "api" e colocar o seguinte comando "npm run dev"
    
