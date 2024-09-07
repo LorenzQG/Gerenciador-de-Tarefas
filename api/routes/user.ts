@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 
     if (!name || !email) {
         res.status(400).send("Name and email are required");
-        return;
+        return
     }
 
     
@@ -32,15 +32,23 @@ router.post("/", async (req, res) => {
 
     const hashPassword = await bcrypt.hash(password, 8);
 
-    const user = await prisma.user.create({
-        data: {
-            name: name,
-            email: email,
-            password: hashPassword,
-        },
-    })
-    const { password: _, ...userNopass } = user;
-    res.status(201).json(userNopass);
+    try{
+        const user = await prisma.user.create({
+            data: {
+                name: name,
+                email: email,
+                password: hashPassword,
+            },
+        })
+        const { password: _, ...userNopass } = user;
+        res.status(201).json(userNopass);    
+    }
+    catch (error){
+        res.status(500).send("Internal server error")
+        return
+    }
+    
+    
 })
 
 router.post("/login", async (req, res) => {

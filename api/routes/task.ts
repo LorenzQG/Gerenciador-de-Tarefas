@@ -31,13 +31,19 @@ router.get("/", async (req, res) => {
         res.status(404).send("User not authenticated")
         return
     }
+  
+    try{
+      const tasks = await prisma.task.findMany({
+        where: {
+          userID: users.id,
+        }
+      })
+      res.status(200).json(tasks);
 
-  const tasks = await prisma.task.findMany({
-    where: {
-      userID: users.id,
+    }catch(err){
+      res.status(401).send("Internal Server Error")
     }
-  })
-  res.status(200).json(tasks);
+  
 });
 
 router.post("/", async (req, res) => {
@@ -84,6 +90,7 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
 
+  try{
     const { id } = req.params;
     const task = await prisma.task.delete({
         where: {
@@ -91,7 +98,12 @@ router.delete("/:id", async (req, res) => {
         },
     });
     res.status(200).json(task);
-    });
+  }catch(err){
+    res.status(401).send("Internal Server Error")
+    return
+  }
+   
+});
 
 router.put("/:id", async (req, res) =>{
     const { id } = req.params
