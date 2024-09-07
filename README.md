@@ -7,12 +7,12 @@
 Tecnologias e linguagens utilizadas:
 
 - Typescript
-  -Express
-  -PrismaORM
+  - Express
+  - PrismaORM
   
 - JavaScript
-  -nodeJS
-  -ReactJS
+  - nodeJS
+  - ReactJS
   
 - MySQl/MariaDB
 
