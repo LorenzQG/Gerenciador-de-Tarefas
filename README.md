@@ -39,6 +39,7 @@ Instruções de utilização:
  - Agora em outro cmd você vai ir do diretorio "api" e colocar o seguinte comando "npm run dev"
    
 --DEIXE SEMPRE OS DOIS CMDS RODANDO OS SERVIDORES PARA FUNCIONAR
+--REGISTRE UM NOVO USUARIO PARA CONSEGUIR LOGAR
 
  
  
