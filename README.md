@@ -4,6 +4,11 @@
 
 ### Aplicativo que permite criar e gerenciar tarefas simples para o usuario
 
+![Screenshot_20240908_192809](https://github.com/user-attachments/assets/e6a0d28d-80c0-4eca-9d8b-5e8542fe9f78)
+
+![Screenshot_20240908_192857](https://github.com/user-attachments/assets/c7fdc9f1-5d08-41f7-aeac-1d6f8eb2d288)
+
+
 Tecnologias e linguagens utilizadas:
 
 - Typescript
