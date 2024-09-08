@@ -9,8 +9,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = "mysql://root:root@localhost:3306/gerenciadortarefas"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -28,7 +28,7 @@ model Task {
   description String @db.VarChar(255)
   creationDate DateTime @default(now())
   checked Boolean @default(false)
-  userID Int @db.Int
+  userID Int 
   user User @relation(fields: [userID], references: [id])
   @@map("tasks")
 }
