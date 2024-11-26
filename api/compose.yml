@@ -1,0 +1,45 @@
+services:
+  api:
+    container_name: api_tarefas
+    build: 
+      context: .
+      target: development
+    user: "1000:1000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    networks:
+      - backend
+    depends_on:
+      wait-for-db:
+        condition: service_completed_successfully
+
+  mysql:
+    container_name: api_tarefas_database
+
+    image: mysql:9.1.0-oraclelinux9
+    networks:
+      - backend
+    restart: always
+    environment:
+      MYSQL_DATABASE: gerenciadortarefas
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - api_tarefas_volume:/var/lib/mysql
+
+  wait-for-db:
+    container_name: api_tarefas_wait
+    image: atkrad/wait4x
+    networks:
+      - backend
+    depends_on:
+      - mysql
+    command: tcp mysql:3306 -t 200s -i 250ms
+
+networks:
+  backend:
+
+volumes:
+  api_tarefas_volume: 
